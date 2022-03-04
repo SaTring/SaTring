@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/chatroomactivity_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/chatroomactivity_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/Widget.AppCompat.Toolbar"
+            app:popupTheme="@style/Theme.AppCompat.Light"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatroomactivity_recyclerview_message.list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/white"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintTop_toBottomOf="@+id/chatroomactivity_appbar"
+        app:layout_constraintBottom_toTopOf="@+id/chatroomactivity_text_indicator"/>
+
+    <TextView
+        android:id="@+id/chatroomactivity_text_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15.998dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/chatroomactivity_view_just.view"/>
+
+    <View
+        android:id="@+id/chatroomactivity_view_just.view"
+        android:layout_width="match_parent"
+        android:layout_height="0.9998dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/chatroomactivity_relativelayout_message.box"/>
+
+    <RelativeLayout
+        android:id="@+id/chatroomactivity_relativelayout_message.box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <EditText
+            android:id="@+id/chatroomactivity_edit_typing.space"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15.998dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/chatroomactivity_btn_send"
+            android:background="@android:color/transparent"
+            android:hint="메세지를 입력하세요."
+            android:inputType="number"
+            android:maxLines="6"
+            tools:ignore="Autofill"/>
+
+        <Button
+            android:id="@+id/chatroomactivity_btn_send"
+            android:layout_width="63.998dp"
+            android:layout_height="47.998dp"
+            android:layout_alignParentEnd="true"
+            android:background="@color/design_default_color_primary"
+
+            android:text="보내기"
+            android:textSize="10sp"/>
+
+    </RelativeLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

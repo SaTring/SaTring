@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "889473227911",
+    "firebase_url": "https://s0tring-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "s0tring",
+    "storage_bucket": "s0tring.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889473227911:android:4fd4fbd60a3555a6e12c22",
+        "android_client_info": {
+          "package_name": "com.example.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889473227911-801428f647br76de51it620ipbr6v4q9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.application",
+            "certificate_hash": "f68fdd3c2591bb64a2cf9d3ac780f206f39652fc"
+          }
+        },
+        {
+          "client_id": "889473227911-rov1neb2a67s4vh84di7gsh26i65uh9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf455spwUaTSiCgw4YKdQALkURUNLz8R8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889473227911-rov1neb2a67s4vh84di7gsh26i65uh9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

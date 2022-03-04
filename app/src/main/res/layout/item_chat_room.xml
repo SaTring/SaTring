@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/item_chat_room_image_profile.image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
+            android:src="@mipmap/ic_launcher"
+            android:background="@drawable/profile_circle"/>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/item_chat_room_text_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3.5"
+                android:gravity="left"
+                android:text="Jina"
+                />
+
+            <TextView
+                android:id="@+id/item_chat_room_text_latest.message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="6.5"
+                android:gravity="center|left"
+                android:text="Hi, I'm Jina, How are u today?"
+                android:singleLine="true"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

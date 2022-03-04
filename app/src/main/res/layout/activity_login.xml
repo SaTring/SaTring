@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".user.LoginActivity">
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Please type your phone number to sign up"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/loginactivity_edit_phone.number"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/loginactivity_btn_ok"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="OK"/>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Please type a number sent to your phone"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+    <com.chaos.view.PinView
+        android:id="@+id/loginactivity_pin_otp"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:itemCount="6"
+        app:itemHeight="50dp"
+        app:itemWidth="45dp"
+        app:itemRadius="3.5dp"
+        app:itemSpacing="2dp"
+        app:lineWidth="0.4dp"
+        app:viewType="rectangle"/>
+
+    <Button
+        android:id="@+id/loginactivity_btn_vetify"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="OK"/>
+
+</LinearLayout>
