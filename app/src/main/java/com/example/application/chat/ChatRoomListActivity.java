@@ -59,6 +59,7 @@ public class ChatRoomListActivity extends AppCompatActivity implements ChatRoomA
         super.onStart();
         list.clear();
         getChatRoomList();
+        listenCounterChange();
     }
 
     public void getChatRoomList()
@@ -84,6 +85,49 @@ public class ChatRoomListActivity extends AppCompatActivity implements ChatRoomA
 
                     }
                 });
+    }
+
+    private void listenCounterChange()
+    {
+        RealtimeDatabaseAccess.Chat.getDatabaseReference()
+                .child("UnreadMessage")
+                .addValueEventListener(new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot)
+                    {
+                        for (DataSnapshot items : snapshot.getChildren())
+                        {
+                            Log.d("onDataChange!!!", items.getKey());
+                            Log.d("onDataChange!!!", items.getValue().toString());
+                        }
+
+                        //updateUI(snapshot.getKey(), 1);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error)
+                    {
+
+                    }
+                });
+    }
+
+    private void updateUI(String uid_ChatRoom, long value)
+    {
+        List<ChatRoom> listTemp = new ArrayList<>();
+
+        for (ChatRoom items: list)
+        {
+            if (items.getChatRoom_Uid().equals(uid_ChatRoom))
+            {
+                items.setUnreadMessageCounter(value);
+            }
+            listTemp.add(items);
+        }
+
+        adapter = new ChatRoomAdapter(context, listTemp, listener);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

@@ -2,10 +2,12 @@ package com.example.application.firebase;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.example.application.MainActivity;
+import com.example.application.user.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApiNotAvailableException;
@@ -27,6 +29,20 @@ public class FireStoreAccess
     {
         private static final String TAG = "TAG_AUTH";
 
+        public static FirebaseFirestore getFirebaseFirestore ()
+        {
+            return db;
+        }
+        public static String getUserUid()
+        {
+            return firebaseUser.getUid();
+        }
+        public static void enrollUser(User user)
+        {
+            db.collection("Database/Match/TripStyle/Busan/UserList")
+                    .document(user.getUid())
+                    .set(user);
+        }
         public static void login(Context context, PhoneAuthCredential credential)
         {
             mAuth.signInWithCredential(credential)
@@ -38,6 +54,8 @@ public class FireStoreAccess
                             if (task.isSuccessful())
                             {
                                 firebaseUser=task.getResult().getUser();
+
+                                enrollUser(new User(firebaseUser.getUid(),"T_User00",""));
 
                                 context.startActivity(new Intent(context, MainActivity.class).putExtra("user", firebaseUser.getPhoneNumber()));
                             }
@@ -53,10 +71,7 @@ public class FireStoreAccess
                     });
         }
 
-        public static String getUserUid()
-        {
-            return firebaseUser.getUid();
-        }
+
 
 
     }

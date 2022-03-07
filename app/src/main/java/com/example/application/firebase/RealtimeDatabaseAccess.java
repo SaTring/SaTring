@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -165,6 +166,13 @@ public class RealtimeDatabaseAccess
                     .child(message.getUid_ChatRoom())
                     .child("lastMessage")
                     .setValue(message.getContents());
+
+            reference
+                    .child("UnreadMessage")
+                    .child(message.getUid_ChatRoom())
+                    .child(message.getUid_Other())
+                    .child("Counter")
+                    .setValue(ServerValue.increment(1));
         }
 
         public static void getMessageHistory(String uid_ChatRoom, FireCallback<List<Message>> callback)

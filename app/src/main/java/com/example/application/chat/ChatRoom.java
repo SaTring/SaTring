@@ -12,6 +12,7 @@ public class ChatRoom
     private String other_NickName;
     private String other_PhotoUrl;
     private String lastMessage;
+    private long unreadMessageCounter;
 
     public ChatRoom() {}
 
@@ -40,6 +41,10 @@ public class ChatRoom
 
     public void setLastMessage(String lastMessage) { this.lastMessage = lastMessage; }
 
+    public void setUnreadMessageCounter(long unreadMessageCounter) { this.unreadMessageCounter = unreadMessageCounter; }
+
+
+
     public String getOther_Uid() { return other_Uid; }
     public String getOther_NickName() { return other_NickName; }
 
@@ -66,6 +71,8 @@ public class ChatRoom
     public String getLastMessage() {
         return lastMessage;
     }
+
+    public long getUnreadMessageCounter() { return unreadMessageCounter; }
 
     @NonNull
     @Override

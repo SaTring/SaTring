@@ -50,8 +50,10 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ViewHo
     {
             holder.getTextView_OtherNickName().setText(list.get(position).getOther_NickName());
             holder.getTextView_LatestMessage().setText(list.get(position).getLastMessage());
-
+            holder.getTextView_Counter().setText(String.valueOf(list.get(position).getUnreadMessageCounter()));
         Log.d("here", list.get(position).getLastMessage());
+        Log.d("here", String.valueOf(list.get(position).getUnreadMessageCounter()));
+
     }
 
     @Override
@@ -65,6 +67,7 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ViewHo
         private ImageView imageView_ProfileImage;
         private TextView textView_OtherNickName;
         private TextView textView_LatestMessage;
+        private TextView textView_Counter;
         private RoomClickListener roomClickListener_ViewHolder;
 
         public ViewHolder(@NonNull View itemView, RoomClickListener roomClickListener_ViewHolder)
@@ -74,7 +77,7 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ViewHo
             imageView_ProfileImage = itemView.findViewById(R.id.item_chat_room_image_profile_image);
             textView_OtherNickName = itemView.findViewById(R.id.item_chat_room_text_nickname);
             textView_LatestMessage = itemView.findViewById(R.id.item_chat_room_text_latest_message);
-
+            textView_Counter = itemView.findViewById(R.id.item_chat_room_text_count);
 
             this.roomClickListener_ViewHolder=roomClickListener_ViewHolder;
             itemView.setOnClickListener(this);
@@ -82,6 +85,7 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ViewHo
 
         public TextView getTextView_OtherNickName() { return textView_OtherNickName;}
         public TextView getTextView_LatestMessage() { return textView_LatestMessage;}
+        public TextView getTextView_Counter() { return textView_Counter;}
 
         @Override
         public void onClick(View view)

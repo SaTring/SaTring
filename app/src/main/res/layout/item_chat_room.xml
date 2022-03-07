@@ -44,6 +44,17 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/item_chat_room_text_count"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#FF0000"
+            android:textSize="20sp"
+            />
+
     </LinearLayout>
 
 </FrameLayout>

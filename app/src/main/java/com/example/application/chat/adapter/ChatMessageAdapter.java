@@ -75,15 +75,38 @@ public class ChatMessageAdapter extends RecyclerView.Adapter
     {
         Message message = (Message) list.get(position);
 
-        switch (holder.getItemViewType())
+        if (position>0)
         {
-            case VIEW_TYPE_ME:
-                ((MyMessageViewHolder)holder).bind(message);
-                break;
-            case VIEW_TYPE_OTHER:
-                ((OtherMessageViewHolder)holder).bind(message);
-                break;
+            int indicator=
+                    message.getDate().compareTo(list.get(position-1).getDate());
+            if (message.getDate().equals(list.get(position-1).getDate()))
+            {
+                switch (holder.getItemViewType())
+                {
+                    case VIEW_TYPE_ME:
+                        ((MyMessageViewHolder)holder).bind(message);
+                        break;
+                    case VIEW_TYPE_OTHER:
+                        ((OtherMessageViewHolder)holder).bind(message);
+                        break;
+                }
+            }
+            else
+            {
+
+                switch (holder.getItemViewType())
+                {
+                    case VIEW_TYPE_ME:
+                        ((MyMessageViewHolder)holder).bindForDate(message);
+                        break;
+                    case VIEW_TYPE_OTHER:
+                        ((OtherMessageViewHolder)holder).bindForDate(message);
+                        break;
+                }
+            }
         }
+
+
     }
 
     @Override
@@ -112,8 +135,15 @@ public class ChatMessageAdapter extends RecyclerView.Adapter
         {
 
             textView_Message.setText(message.getContents());
-
             textView_Date.setVisibility(View.GONE);
+            textView_Time.setText(message.getTime());
+        }
+
+        void bindForDate(Message message)
+        {
+            textView_Message.setText(message.getContents());
+            textView_Date.setVisibility(View.VISIBLE);
+            textView_Date.setText(message.getDate());
             textView_Time.setText(message.getTime());
         }
     }
@@ -144,5 +174,15 @@ public class ChatMessageAdapter extends RecyclerView.Adapter
             textView_Time.setText(message.getTime());
             textView_NickName.setText(message.getNickName());
         }
+
+        void bindForDate(Message message)
+        {
+            textView_Message.setText(message.getContents());
+            textView_Date.setVisibility(View.VISIBLE);
+            textView_Date.setText(message.getDate());
+            textView_Time.setText(message.getTime());
+            textView_NickName.setText(message.getNickName());
+        }
+
     }
 }
